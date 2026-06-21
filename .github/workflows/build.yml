@@ -1,4 +1,4 @@
-name: Build and Deploy Flet App
+ name: Build and Deploy Flet App
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: Build Web App
         run: |
           pip install flet
-          flet build web main.py --base-url /${{ github.event.repository.name }}/ --yes
+          flet build web --base-url /${{ github.event.repository.name }}/ --yes
 
       - name: Upload Web Artifact
         uses: actions/upload-pages-artifact@v3
@@ -55,7 +55,7 @@ jobs:
       - name: Build Windows EXE
         run: |
           pip install flet pyinstaller
-          flet build windows main.py --yes
+          flet build windows --yes
 
       - name: Upload Windows EXE Artifact
         uses: actions/upload-artifact@v4
