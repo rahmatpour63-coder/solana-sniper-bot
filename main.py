@@ -21,6 +21,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build Windows EXE
+        env:
+          PYTHONIOENCODING: 'utf-8'
+          PYTHONUTF8: '1'
         run: |
           pip install flet pyinstaller
           flet build windows --yes
